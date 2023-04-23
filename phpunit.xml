@@ -6,17 +6,29 @@
 >
     <testsuites>
         <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory>./tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory>./tests/Feature</directory>
         </testsuite>
     </testsuites>
     <source>
+        <exclude>
+            <directory>./app/Console</directory>
+            <directory>./app/Http/Controllers/Auth</directory>
+            <directory>./app/Http/Requests/Auth</directory>
+            <file>./app/Providers/BroadcastServiceProvider.php</file>
+            <file>./app/Providers/AuthServiceProvider.php</file>
+        </exclude>
         <include>
-            <directory suffix=".php">./app</directory>
+            <directory>./app</directory>
         </include>
     </source>
+    <coverage>
+        <report>
+            <html outputDirectory="public/report" />
+        </report>
+    </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
