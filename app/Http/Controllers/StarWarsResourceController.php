@@ -14,23 +14,12 @@ class StarWarsResourceController extends Controller
 {
     public function __construct(
         protected ApiClient $apiClient
-    )
-    {
-        $this->middleware(function (Request $request, \Closure $next) {
-            throw_if(!in_array(request()->route()->parameter('resourceType'), [
-                'people',
-                'starships',
-                'films',
-            ]), NotFoundHttpException::class);
-            return $next($request);
-        })->only(['index', 'find']);
+    ) {
     }
 
     public function index(string $resourceType)
     {
-        return $this->apiClient
-            ->get("$resourceType")
-        ;
+        return $this->apiClient->get("$resourceType");
     }
 
     public function find(Request $request, string $resourceType, Resource $resource)
@@ -53,8 +42,7 @@ class StarWarsResourceController extends Controller
             })
             ->pluck('classification')
             ->unique()
-            ->values()
-        ;
+            ->values();
     }
 
     public function population()
@@ -66,11 +54,11 @@ class StarWarsResourceController extends Controller
             $results = $results->merge($response['results']);
             $nextPageUrl = $response['next'];
         } while ($nextPageUrl);
+
         return $results->pluck('population')
             ->transform(function ($population) {
                 return (int)$population;
             })
-            ->sum()
-        ;
+            ->sum();
     }
 }

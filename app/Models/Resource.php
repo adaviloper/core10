@@ -11,12 +11,26 @@ class Resource extends Model
 {
     use HasFactory;
 
+    public const PEOPLE_TYPE = 'people';
+    public const STARSHIPS_TYPE = 'starships';
+    public const FILMS_TYPE = 'films';
+    public const SPECIES_TYPE = 'species';
+    public const PLANETS_TYPE = 'planets';
+
+    public const TYPES = [
+        self::PEOPLE_TYPE,
+        self::STARSHIPS_TYPE,
+        self::FILMS_TYPE,
+        self::SPECIES_TYPE,
+        self::PLANETS_TYPE,
+    ];
+
     public const CLASS_MAP = [
-        'people' => Person::class,
-        'starships' => Starship::class,
-        'films' => Film::class,
-        'species' => Specie::class,
-        'planets' => Planet::class,
+        self::PEOPLE_TYPE => Person::class,
+        self::STARSHIPS_TYPE => Starship::class,
+        self::FILMS_TYPE => Film::class,
+        self::SPECIES_TYPE => Specie::class,
+        self::PLANETS_TYPE => Planet::class,
     ];
 
     /**
