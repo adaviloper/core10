@@ -1,0 +1,3 @@
+.question-card + .question-card {
+    @apply border-t
+}
