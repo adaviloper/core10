@@ -2,7 +2,9 @@
 
 namespace Tests\Feature\App\Http\Middleware;
 
+use App\Http\Middleware\VerifyResourceType;
 use App\Models\Resource;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tests\TestCase;

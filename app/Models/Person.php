@@ -35,4 +35,18 @@ class Person extends Resource
             get: fn () => "swapi.dev/{$this->resourceType}/{$this->id}",
         );
     }
+
+    public function getAnswer(string $question)
+    {
+        return match ($question) {
+            'starships' => $this->getStarships()
+        };
+    }
+
+    public function getStarships()
+    {
+        return collect($this->starships)->map(function (string $starshipPath) {
+            return app()->get(ApiClient::class)->get($starshipPath);
+        });
+    }
 }

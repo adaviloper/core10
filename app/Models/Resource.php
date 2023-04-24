@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Clients\ApiClient;
 use App\Clients\SWClient;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Resource extends Model
 {
@@ -53,5 +55,9 @@ class Resource extends Model
     public static function getResourceClass(string $resourceType): string
     {
         return self::CLASS_MAP[$resourceType] ?? abort(404);
+    }
+
+    public function getAnswer(string $question) {
+        throw new Exception('[getAnswer] must be defined.');
     }
 }

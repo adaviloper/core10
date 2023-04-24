@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Clients\ApiClient;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -23,5 +24,10 @@ class Starship extends Resource
         return Attribute::make(
             get: fn () => "swapi.dev/{$this->resourceType}/{$this->id}",
         );
+    }
+
+    public function getAnswer(string $question)
+    {
+        //
     }
 }

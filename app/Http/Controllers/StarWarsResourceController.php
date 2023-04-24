@@ -27,22 +27,9 @@ class StarWarsResourceController extends Controller
         return $resource;
     }
 
-    public function starships(string $resourceType, Resource $resource)
+    public function question(string $resourceType, Resource $resource, $question)
     {
-        return collect($resource->starships)->map(function (string $starshipPath) {
-            return $this->apiClient->get($starshipPath);
-        });
-    }
-
-    public function species(string $resourceType, Resource $resource)
-    {
-        return collect($resource->species)
-            ->map(function (string $speciesPath) {
-                return $this->apiClient->get($speciesPath);
-            })
-            ->pluck('classification')
-            ->unique()
-            ->values();
+        return $resource->getAnswer($question);
     }
 
     public function population()
