@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\App\Pagintor;
+namespace Tests\Unit\App\Paginator;
 
 use App\Paginator\ResourcePaginator;
 use PHPUnit\Framework\TestCase;
