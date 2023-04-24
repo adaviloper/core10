@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "f879770b-fbac-47d1-8482-6a150113cac7",
+		"name": "Core10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27079260"
+	},
+	"item": [
+		{
+			"name": "Luke's Starships",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base_url}}/people/1/starships",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"people",
+						"1",
+						"starships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Species in Episode 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base_url}}/films/4/species",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"films",
+						"4",
+						"species"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Galactic Population",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base_url}}/planets/population",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"planets",
+						"population"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
