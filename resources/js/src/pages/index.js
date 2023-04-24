@@ -10,8 +10,7 @@ import ShipDetails from '@/components/Ship/ShipDetails/ShipDetails';
 import List from '@/components/UI/List';
 
 export default function Home() {
-    const { user } = useAuth({ middleware: 'guest' })
-    const { getApiData, getSpecies, getPopulation } = useInfoBroker();
+    const { getApiData } = useInfoBroker();
     const [errors, setErrors] = useState({});
     const [apiData, setApiData] = useState([]);
     const [question, setQuestion] = useState('');
